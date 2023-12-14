@@ -104,6 +104,10 @@ use serde_json::Value;
 use rusqlite::{params, Connection, Error as RusqliteError};
 
 // Assuming T is a serializable Rust structure representing the DataFrame
+use serde_json::Value;
+use rusqlite::{params, Connection, Error as RusqliteError};
+
+// Assuming T is a serializable Rust structure representing the DataFrame
 pub fn insert_from_dataframe<T: Serialize>(conn: &Connection, table_name: &str, data: &T) -> Result<(), RusqliteError> {
     // Serialize the data structure into JSON
     let serialized_data = serde_json::to_string(data)?;
